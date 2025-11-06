@@ -1,0 +1,6 @@
+2025-11-07 00:27:40 - EMERGENCY sent for Moga | conf=88% | AQI=349
+2025-11-07 00:27:43 - EMERGENCY sent for Moga | conf=88% | AQI=349
+2025-11-07 00:27:47 - EMERGENCY sent for Moga | conf=88% | AQI=349
+2025-11-07 00:27:52 - EMERGENCY sent for Moga | conf=88% | AQI=349
+2025-11-07 00:27:55 - EMERGENCY sent for Moga | conf=86% | AQI=313
+2025-11-07 00:48:06 - EMERGENCY sent for Amritsar | conf=95% | AQI=203
