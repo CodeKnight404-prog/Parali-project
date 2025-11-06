@@ -30,11 +30,11 @@ def get_fake_aqi(is_fire: bool) -> int:
     return random.randint(180, 350) if is_fire else random.randint(40, 120)
 
 def log_alert(district, time_str, conf):
-    with open("alerts_log.txt", "a") as f:
+    with open("satellite_fire_app/alerts_log.txt", "a") as f:
         f.write(f"{time_str} - Fire in {district} (confidence: {int(conf*100)}%)\n")
 
 def log_emergency(district, time_str, conf, aqi):
-    with open("emergency_log.txt", "a") as f:
+    with open("satellite_fire_app/emergency_log.txt", "a") as f:
         f.write(f"{time_str} - EMERGENCY sent for {district} | conf={int(conf*100)}% | AQI={aqi}\n")
 
 def aqi_label(aqi_val: int) -> str:
@@ -45,7 +45,7 @@ def aqi_label(aqi_val: int) -> str:
     return "Healthy"
 
 # ---------------- Load Data ----------------
-with open("data/punjab_fire_data.json") as f:
+with open("satellite_fire_app/data/punjab_fire_data.json") as f:
     fire_data = json.load(f)
 
 # ---------------- Sidebar ----------------
@@ -144,20 +144,23 @@ if st.session_state["has_detected_once"]:
             icon=folium.Icon(color="red"),
         ).add_to(m)
         st_folium(m, width=700, height=400)
-
-        if os.path.exists("data/demo_fire.jpg"):
-            st.image("data/demo_fire.jpg", caption="Infrared Hotspot (Demo)", width=420)
     else:
         st.success(f"✅ No fire detected in **{selected}**")
-        if os.path.exists("data/punjab_map.jpg"):
-            st.image("data/punjab_map.jpg", caption="No Active Hotspots (Demo)", width=420)
 
 # ---------------- Logs Viewer ----------------
 if st.session_state["show_history"]:
     st.subheader("🧾 Alert History")
-    if os.path.exists("alerts_log.txt"):
-        with open("alerts_log.txt", "r") as f:
+    if os.path.exists("satellite_fire_app/alerts_log.txt"):
+        with open("satellite_fire_app/alerts_log.txt", "r") as f:
             logs = f.read().strip()
         st.code(logs or "No alerts logged yet.", language="text")
     else:
         st.info("No alert log yet. Run a detection first.")
+
+    st.subheader("🚨 Emergency Log")
+    if os.path.exists("satellite_fire_app/emergency_log.txt"):
+        with open("satellite_fire_app/emergency_log.txt", "r") as f:
+            elog = f.read().strip()
+        st.code(elog or "No emergency notifications yet.", language="text")
+    else:
+        st.info("No emergency messages sent yet.")
