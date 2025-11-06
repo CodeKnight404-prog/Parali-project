@@ -161,12 +161,3 @@ if st.session_state["show_history"]:
         st.code(logs or "No alerts logged yet.", language="text")
     else:
         st.info("No alert log yet. Run a detection first.")
-
-    st.subheader("🚨 Emergency Log")
-    if os.path.exists("emergency_log.txt"):
-        with open("emergency_log.txt", "r") as f:
-            elog = f.read().strip()
-        st.code(elog or "No emergency notifications yet.", language="text")
-    else:
-        st.info("No emergency messages sent yet.")
- 
