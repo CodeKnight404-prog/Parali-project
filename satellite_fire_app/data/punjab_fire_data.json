@@ -1,0 +1,30 @@
+{
+  "Amritsar": {
+    "fire_detected": true,
+    "timestamp": "2025-11-06 14:00",
+    "location": "31.6340° N, 74.8723° E",
+    "lat": 31.6340,
+    "lon": 74.8723
+  },
+  "Ludhiana": {
+    "fire_detected": false,
+    "timestamp": "2025-11-06 14:00",
+    "location": "30.9010° N, 75.8573° E",
+    "lat": 30.9010,
+    "lon": 75.8573
+  },
+  "Moga": {
+    "fire_detected": true,
+    "timestamp": "2025-11-06 14:00",
+    "location": "30.8210° N, 75.1745° E",
+    "lat": 30.8210,
+    "lon": 75.1745
+  },
+  "Patiala": {
+    "fire_detected": false,
+    "timestamp": "2025-11-06 14:00",
+    "location": "30.3398° N, 76.3869° E",
+    "lat": 30.3398,
+    "lon": 76.3869
+  }
+}
